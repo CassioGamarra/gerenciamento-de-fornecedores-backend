@@ -36,10 +36,12 @@ public class TipoFornecedorService {
             TipoFornecedor savedTipoFornecedor = tipoFornecedorRepository.save(tipoFornecedorToSave);
             return MessageResponseDTO.builder()
                     .message("Tipo de fornecedor criado com ID: "+savedTipoFornecedor.getId())
+                    .success(true)
                     .build();
         } else {
             return MessageResponseDTO.builder()
                     .message("Já existe um tipo de serviço cadastrado com essa descrição!")
+                    .success(false)
                     .build();
         }
     }

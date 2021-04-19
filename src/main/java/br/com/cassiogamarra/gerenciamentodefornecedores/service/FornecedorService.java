@@ -33,10 +33,12 @@ public class FornecedorService {
             Fornecedor savedFornecedor = fornecedorRepository.save(fornecedorToSave);
             return MessageResponseDTO.builder()
                     .message("Fornecedor criado com o ID "+savedFornecedor.getId())
+                    .success(true)
                     .build();
         } else {
             return MessageResponseDTO.builder()
-                    .message("Já existe um fornecedor com este cnpj!")
+                    .message("Já existe um fornecedor com este CNPJ!")
+                    .success(false)
                     .build();
         }
     }
