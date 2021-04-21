@@ -95,6 +95,7 @@ public class FornecedorService {
         fornecedorRepository.delete(fornecedor);
         return MessageResponseDTO.builder()
                 .message("O fornecedor foi deletado!")
+                .success(true)
                 .build();
     }
 

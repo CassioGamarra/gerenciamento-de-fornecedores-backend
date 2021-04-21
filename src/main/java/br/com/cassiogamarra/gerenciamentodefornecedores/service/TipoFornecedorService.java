@@ -70,6 +70,7 @@ public class TipoFornecedorService {
         tipoFornecedorRepository.delete(tipoFornecedor);
         return MessageResponseDTO.builder()
                 .message("O tipoFornecedor foi deletado!")
+                .success(true)
                 .build();
     }
 
