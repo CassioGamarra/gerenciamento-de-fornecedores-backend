@@ -13,6 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/tiposfornecedores")
 public class TipoFornecedorController {
 

@@ -6,7 +6,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-04-20T22:41:25-0300",
+    date = "2021-04-20T23:35:05-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.2 (Oracle Corporation)"
 )
 public class TipoFornecedorMapperImpl implements TipoFornecedorMapper {
