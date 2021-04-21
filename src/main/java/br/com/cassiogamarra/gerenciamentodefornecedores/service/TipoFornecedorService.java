@@ -58,6 +58,7 @@ public class TipoFornecedorService {
         tipoFornecedorRepository.save(tipoFornecedor);
         return MessageResponseDTO.builder()
                 .message("Alterações salvas com sucesso!")
+                .success(true)
                 .build();
     }
 
