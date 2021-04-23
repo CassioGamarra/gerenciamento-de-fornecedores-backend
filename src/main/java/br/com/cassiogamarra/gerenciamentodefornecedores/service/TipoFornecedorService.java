@@ -35,7 +35,7 @@ public class TipoFornecedorService {
             TipoFornecedor tipoFornecedorToSave = tipoFornecedorMapper.toModel(tipoFornecedorDTO);
             TipoFornecedor savedTipoFornecedor = tipoFornecedorRepository.save(tipoFornecedorToSave);
             return MessageResponseDTO.builder()
-                    .message("Tipo de fornecedor criado com ID: "+savedTipoFornecedor.getId())
+                    .message("Tipo de fornecedor criado com sucesso!")
                     .success(true)
                     .build();
         } else {

@@ -32,7 +32,7 @@ public class FornecedorService {
             Fornecedor fornecedorToSave = fornecedorMapper.toModel(fornecedorDTO);
             Fornecedor savedFornecedor = fornecedorRepository.save(fornecedorToSave);
             return MessageResponseDTO.builder()
-                    .message("Fornecedor criado com o ID "+savedFornecedor.getId())
+                    .message("Fornecedor criado com sucesso!")
                     .success(true)
                     .build();
         } else {
