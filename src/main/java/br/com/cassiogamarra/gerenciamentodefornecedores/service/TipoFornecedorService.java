@@ -1,12 +1,8 @@
 package br.com.cassiogamarra.gerenciamentodefornecedores.service;
 
-import br.com.cassiogamarra.gerenciamentodefornecedores.controller.TipoFornecedorController;
-import br.com.cassiogamarra.gerenciamentodefornecedores.dto.FornecedorDTO;
 import br.com.cassiogamarra.gerenciamentodefornecedores.dto.MessageResponseDTO;
 import br.com.cassiogamarra.gerenciamentodefornecedores.dto.TipoFornecedorDTO;
-import br.com.cassiogamarra.gerenciamentodefornecedores.entity.Fornecedor;
 import br.com.cassiogamarra.gerenciamentodefornecedores.entity.TipoFornecedor;
-import br.com.cassiogamarra.gerenciamentodefornecedores.exception.FornecedorNotFoundException;
 import br.com.cassiogamarra.gerenciamentodefornecedores.exception.TipoFornecedorNotFoundException;
 import br.com.cassiogamarra.gerenciamentodefornecedores.mapper.TipoFornecedorMapper;
 import br.com.cassiogamarra.gerenciamentodefornecedores.repository.TipoFornecedorRepository;
@@ -15,14 +11,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TipoFornecedorService {
 
     private TipoFornecedorRepository tipoFornecedorRepository;
 
-    private final TipoFornecedorMapper tipoFornecedorMapper =  TipoFornecedorMapper.INSTANCE;
+    private final TipoFornecedorMapper tipoFornecedorMapper = TipoFornecedorMapper.INSTANCE;
 
     @Autowired
     public TipoFornecedorService(TipoFornecedorRepository tipoFornecedorRepository) {
@@ -33,7 +28,7 @@ public class TipoFornecedorService {
         boolean hasService = tipoFornecedorRepository.findByDescricao(tipoFornecedorDTO.getDescricao()).isEmpty();
         if(hasService) {
             TipoFornecedor tipoFornecedorToSave = tipoFornecedorMapper.toModel(tipoFornecedorDTO);
-            TipoFornecedor savedTipoFornecedor = tipoFornecedorRepository.save(tipoFornecedorToSave);
+            tipoFornecedorRepository.save(tipoFornecedorToSave);
             return MessageResponseDTO.builder()
                     .message("Tipo de fornecedor criado com sucesso!")
                     .success(true)
@@ -62,14 +57,13 @@ public class TipoFornecedorService {
                 .build();
     }
 
-
     public MessageResponseDTO delete(Long id) throws TipoFornecedorNotFoundException {
         TipoFornecedor tipoFornecedor = tipoFornecedorRepository.findById(id)
                 .orElseThrow(() -> new TipoFornecedorNotFoundException());
 
         tipoFornecedorRepository.delete(tipoFornecedor);
         return MessageResponseDTO.builder()
-                .message("O tipoFornecedor foi deletado!")
+                .message("O tipoFornecedor foi excluído!")
                 .success(true)
                 .build();
     }

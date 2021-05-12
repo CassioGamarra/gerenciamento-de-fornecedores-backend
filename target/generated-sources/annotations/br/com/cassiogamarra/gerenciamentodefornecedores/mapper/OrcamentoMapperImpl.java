@@ -1,8 +1,10 @@
 package br.com.cassiogamarra.gerenciamentodefornecedores.mapper;
 
 import br.com.cassiogamarra.gerenciamentodefornecedores.dto.FornecedorDTO;
+import br.com.cassiogamarra.gerenciamentodefornecedores.dto.OrcamentoDTO;
 import br.com.cassiogamarra.gerenciamentodefornecedores.dto.TipoFornecedorDTO;
 import br.com.cassiogamarra.gerenciamentodefornecedores.entity.Fornecedor;
+import br.com.cassiogamarra.gerenciamentodefornecedores.entity.Orcamento;
 import br.com.cassiogamarra.gerenciamentodefornecedores.entity.TipoFornecedor;
 import javax.annotation.processing.Generated;
 
@@ -11,10 +13,56 @@ import javax.annotation.processing.Generated;
     date = "2021-05-11T23:54:58-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.2 (Oracle Corporation)"
 )
-public class FornecedorMapperImpl implements FornecedorMapper {
+public class OrcamentoMapperImpl implements OrcamentoMapper {
 
     @Override
-    public Fornecedor toModel(FornecedorDTO fornecedorDTO) {
+    public Orcamento toModel(OrcamentoDTO orcamentoDTO) {
+        if ( orcamentoDTO == null ) {
+            return null;
+        }
+
+        Orcamento orcamento = new Orcamento();
+
+        orcamento.setId( orcamentoDTO.getId() );
+        orcamento.setDescricao( orcamentoDTO.getDescricao() );
+        orcamento.setValor( orcamentoDTO.getValor() );
+        orcamento.setVencimento( orcamentoDTO.getVencimento() );
+        orcamento.setFornecedor( fornecedorDTOToFornecedor( orcamentoDTO.getFornecedor() ) );
+
+        return orcamento;
+    }
+
+    @Override
+    public OrcamentoDTO toDTO(Orcamento orcamento) {
+        if ( orcamento == null ) {
+            return null;
+        }
+
+        OrcamentoDTO orcamentoDTO = new OrcamentoDTO();
+
+        orcamentoDTO.setId( orcamento.getId() );
+        orcamentoDTO.setDescricao( orcamento.getDescricao() );
+        orcamentoDTO.setValor( orcamento.getValor() );
+        orcamentoDTO.setVencimento( orcamento.getVencimento() );
+        orcamentoDTO.setFornecedor( fornecedorToFornecedorDTO( orcamento.getFornecedor() ) );
+
+        return orcamentoDTO;
+    }
+
+    protected TipoFornecedor tipoFornecedorDTOToTipoFornecedor(TipoFornecedorDTO tipoFornecedorDTO) {
+        if ( tipoFornecedorDTO == null ) {
+            return null;
+        }
+
+        TipoFornecedor tipoFornecedor = new TipoFornecedor();
+
+        tipoFornecedor.setId( tipoFornecedorDTO.getId() );
+        tipoFornecedor.setDescricao( tipoFornecedorDTO.getDescricao() );
+
+        return tipoFornecedor;
+    }
+
+    protected Fornecedor fornecedorDTOToFornecedor(FornecedorDTO fornecedorDTO) {
         if ( fornecedorDTO == null ) {
             return null;
         }
@@ -36,8 +84,20 @@ public class FornecedorMapperImpl implements FornecedorMapper {
         return fornecedor;
     }
 
-    @Override
-    public FornecedorDTO toDTO(Fornecedor fornecedor) {
+    protected TipoFornecedorDTO tipoFornecedorToTipoFornecedorDTO(TipoFornecedor tipoFornecedor) {
+        if ( tipoFornecedor == null ) {
+            return null;
+        }
+
+        TipoFornecedorDTO tipoFornecedorDTO = new TipoFornecedorDTO();
+
+        tipoFornecedorDTO.setId( tipoFornecedor.getId() );
+        tipoFornecedorDTO.setDescricao( tipoFornecedor.getDescricao() );
+
+        return tipoFornecedorDTO;
+    }
+
+    protected FornecedorDTO fornecedorToFornecedorDTO(Fornecedor fornecedor) {
         if ( fornecedor == null ) {
             return null;
         }
@@ -57,31 +117,5 @@ public class FornecedorMapperImpl implements FornecedorMapper {
         fornecedorDTO.setTipoFornecedor( tipoFornecedorToTipoFornecedorDTO( fornecedor.getTipoFornecedor() ) );
 
         return fornecedorDTO;
-    }
-
-    protected TipoFornecedor tipoFornecedorDTOToTipoFornecedor(TipoFornecedorDTO tipoFornecedorDTO) {
-        if ( tipoFornecedorDTO == null ) {
-            return null;
-        }
-
-        TipoFornecedor tipoFornecedor = new TipoFornecedor();
-
-        tipoFornecedor.setId( tipoFornecedorDTO.getId() );
-        tipoFornecedor.setDescricao( tipoFornecedorDTO.getDescricao() );
-
-        return tipoFornecedor;
-    }
-
-    protected TipoFornecedorDTO tipoFornecedorToTipoFornecedorDTO(TipoFornecedor tipoFornecedor) {
-        if ( tipoFornecedor == null ) {
-            return null;
-        }
-
-        TipoFornecedorDTO tipoFornecedorDTO = new TipoFornecedorDTO();
-
-        tipoFornecedorDTO.setId( tipoFornecedor.getId() );
-        tipoFornecedorDTO.setDescricao( tipoFornecedor.getDescricao() );
-
-        return tipoFornecedorDTO;
     }
 }

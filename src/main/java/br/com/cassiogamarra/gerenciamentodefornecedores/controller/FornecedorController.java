@@ -2,10 +2,8 @@ package br.com.cassiogamarra.gerenciamentodefornecedores.controller;
 
 import br.com.cassiogamarra.gerenciamentodefornecedores.dto.FornecedorDTO;
 import br.com.cassiogamarra.gerenciamentodefornecedores.dto.MessageResponseDTO;
-import br.com.cassiogamarra.gerenciamentodefornecedores.dto.TipoFornecedorDTO;
 import br.com.cassiogamarra.gerenciamentodefornecedores.exception.FornecedorNotFoundException;
 import br.com.cassiogamarra.gerenciamentodefornecedores.service.FornecedorService;
-import org.aspectj.bridge.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

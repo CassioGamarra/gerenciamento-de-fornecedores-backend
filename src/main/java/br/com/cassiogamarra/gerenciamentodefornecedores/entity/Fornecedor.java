@@ -8,36 +8,46 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "FORNECEDOR")
+@Table(name = "fornecedor")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Fornecedor {
+
     @Id
-    @Column(name="ID")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="CNPJ", nullable = false, unique = true)
+
+    @Column(name="cnpj", nullable = false, unique = true)
     private String cnpj;
-    @Column(name="NOME", nullable = false)
+
+    @Column(name="nome", nullable = false)
     private String nome;
-    @Column(name="TELEFONE", nullable = false)
+
+    @Column(name="telefone", nullable = false)
     private String telefone;
-    @Column(name="CEP", nullable = false)
+
+    @Column(name="cep", nullable = false)
     private String cep;
-    @Column(name="ENDERECO", nullable = false)
+
+    @Column(name="endereco", nullable = false)
     private String endereco;
-    @Column(name="BAIRRO", nullable = false)
+
+    @Column(name="bairro", nullable = false)
     private String bairro;
-    @Column(name="MUNICIPIO", nullable = false)
+
+    @Column(name="municipio", nullable = false)
     private String municipio;
-    @Column(name="UF", nullable = false)
+
+    @Column(name="uf", nullable = false)
     private String uf;
-    @Column(name="STATUS", nullable = false)
+
+    @Column(name="status", nullable = false)
     private boolean status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_TIPO")
+    @JoinColumn(name = "id_tipo")
     private TipoFornecedor tipoFornecedor;
 }

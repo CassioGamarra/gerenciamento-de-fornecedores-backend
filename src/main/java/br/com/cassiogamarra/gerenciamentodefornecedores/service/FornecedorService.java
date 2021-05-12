@@ -30,7 +30,7 @@ public class FornecedorService {
 
         if(hasFornecedor) {
             Fornecedor fornecedorToSave = fornecedorMapper.toModel(fornecedorDTO);
-            Fornecedor savedFornecedor = fornecedorRepository.save(fornecedorToSave);
+            fornecedorRepository.save(fornecedorToSave);
             return MessageResponseDTO.builder()
                     .message("Fornecedor criado com sucesso!")
                     .success(true)
@@ -94,7 +94,7 @@ public class FornecedorService {
 
         fornecedorRepository.delete(fornecedor);
         return MessageResponseDTO.builder()
-                .message("O fornecedor foi deletado!")
+                .message("O fornecedor foi excluído!")
                 .success(true)
                 .build();
     }
