@@ -16,7 +16,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gerenciamento-de-fornecedores" target="15" />
+      <module name="gerenciamento-de-fornecedores" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
