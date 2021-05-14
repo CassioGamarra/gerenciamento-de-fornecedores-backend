@@ -41,6 +41,9 @@ public class OrcamentoService {
         Orcamento orcamentoToEdit = orcamentoMapper.toModel(orcamentoDTO);
 
         orcamento.setDescricao(orcamentoToEdit.getDescricao());
+        orcamento.setValor(orcamentoToEdit.getValor());
+        orcamento.setVencimento(orcamentoToEdit.getVencimento());
+        orcamento.setFornecedor(orcamentoToEdit.getFornecedor());
 
         orcamentoRepository.save(orcamento);
         return MessageResponseDTO.builder()

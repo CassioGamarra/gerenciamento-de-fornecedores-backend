@@ -29,7 +29,7 @@ public class Orcamento {
     private double valor;
 
     @Column(name="vencimento", nullable = false)
-    private Date vencimento;
+    private String vencimento;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_fornecedor")

@@ -27,7 +27,7 @@ public class OrcamentoDTO {
     private double valor;
 
     @NotNull
-    private Date vencimento;
+    private String vencimento;
 
     @NotNull
     private FornecedorDTO fornecedor;

@@ -35,7 +35,7 @@ public class TipoFornecedorService {
                     .build();
         } else {
             return MessageResponseDTO.builder()
-                    .message("Já existe um tipo de serviço cadastrado com essa descrição!")
+                    .message("Já existe um tipo de fornecedor cadastrado com essa descrição!")
                     .success(false)
                     .build();
         }
@@ -63,7 +63,7 @@ public class TipoFornecedorService {
 
         tipoFornecedorRepository.delete(tipoFornecedor);
         return MessageResponseDTO.builder()
-                .message("O tipoFornecedor foi excluído!")
+                .message("O tipo de fornecedor foi excluído!")
                 .success(true)
                 .build();
     }
